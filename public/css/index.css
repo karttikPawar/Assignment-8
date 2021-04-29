@@ -1,0 +1,13 @@
+.blogContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+
+  margin: 0 auto;
+  justify-content: space-around;
+}
+.blogCard {
+  max-width: 45%;
+  min-width: 45%;
+  margin-bottom: 10px;
+}

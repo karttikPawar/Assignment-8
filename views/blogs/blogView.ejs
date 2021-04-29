@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous"><title>Document</title>
+        <link rel="stylesheet" href="/css/blogView.css">
+      </head>
+  <body>
+
+    <%- include("../partials/navbar")%>
+  
+  <div class="blogContent mt-2">
+    <div class="blogLeft">
+      <h1 class="text-center"><%= blog.title %> <h1/>
+    
+        <img class="rounded mx-auto d-block mt-5" src=<%= blog.image %> />
+       <div class="authorContainer d-flex mt-4">
+        
+        <h3 class="mb-2 ">Writen By: <%= blog.author %> <h3/>
+        </div>
+
+        <h6 class="card-text text-left"><%= blog.content %> <h6/>
+        
+          <div class="d-flex blogEditButtons">     
+            <form method="GET" action="/blog/<%= blog._id %>/edit">
+            <button  class="btn btn-primary editButtons ">Update</button>
+          </form>  
+      
+        <form method="POST" action="/blog/<%= blog._id %>?_method=DELETE">
+          <button class="btn btn-danger editButtons">Delete</button>
+        </form> 
+        
+        
+    </div>
+    </div>
+    <div class="blogRight">
+      <section>
+        <h3>Comments Section</h3>
+      </section>
+       <div class="makeComments mt-5 w-100">
+      <form method="POST" class="commentForm" action="/blog/<%= blog._id %>/comments">
+        <textarea name="comment" id="" cols="30" rows="5" required></textarea>
+        <button class="btn btn-success mt-1 commentButton">Add comment</button>
+      </form>
+      <br/>
+      <br/>
+      <br/>
+      <%for(let comment of blog.comments){%>
+        <div class="card mb-3 commentCard">
+            
+            <div class="card-body ">
+              <h6 class="card-title"><%=comment.comment%></h6>
+              
+            </div>
+          </div>
+  
+    <%}%>
+    </div>
+  </div>
+  </div>
+    
+  
+     
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+  </body>
+</html>

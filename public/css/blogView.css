@@ -1,0 +1,43 @@
+.blogContent {
+  display: flex;
+}
+.blogLeft {
+  flex: 0.6;
+  padding-left: 10px;
+}
+
+.blogLeft img {
+  width: 70%;
+  height: 330px;
+}
+
+.blogRight {
+  flex: 0.4;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+.commentForm textarea {
+  width: 100%;
+}
+.commentCard {
+  border: 1px solid black;
+}
+.blogEditButtons {
+  margin-top: 15px;
+  width: 40%;
+  justify-content: space-around;
+}
+.editButtons {
+  width: 120px !important;
+}
